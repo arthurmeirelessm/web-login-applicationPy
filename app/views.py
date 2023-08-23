@@ -4,4 +4,11 @@ from django.http import HttpResponse
 # Create your views here
 
 def home(request): 
-   return HttpResponse('{status: ok}')
+   print(request)
+   return render(request, 'main.html')
+
+
+
+
+
+

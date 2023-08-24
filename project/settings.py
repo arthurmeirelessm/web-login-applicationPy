@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sistema',
+        'NAME': 'RFRegisterdb',
         'HOST': 'localhost',
         'USER': 'root',
         'PASSWORD': 'password',

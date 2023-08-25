@@ -1,8 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from .models import Admin
+from django.contrib.auth import authenticate, login
 # Create your views here
+
+
+
+def loginPage(request): 
+   print(request)
+   return render(request, 'login.html')
 
 
 def home(request): 
@@ -14,15 +20,13 @@ def create(request):
    print(request)
    return render(request, 'main.html')
 
+
 def dologin(request): 
-user = authenticate(email=request.POST['email'], password=request.POST['password'])
-if user is not None:
-    # A backend authenticated the credentials
-   login(request, user)
-   return redirect('/home/') 
-else:
-    # No backend authenticated the credentials
-    return render(request, 'login.html')
+   print(request)
+   email = request.POST['email']
+   print(email)
+   password = request.POST['password']
+   return null
 
 
 

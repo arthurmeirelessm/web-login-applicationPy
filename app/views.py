@@ -22,11 +22,20 @@ def create(request):
 
 
 def dologin(request): 
-   print(request)
-   email = request.POST['email']
-   print(email)
-   password = request.POST['password']
-   return null
+ if request.method == 'POST':
+    email = request.POST['email']
+    password = request.POST['password']
+    try:
+          user = Admin.objects.get(email=email, password=password)
+    except Admin.DoesNotExist: 
+        user = None
+
+    if user is not None: 
+        return redirect('/home/')
+    else: 
+        return render(request, 'login.html', {'error_message': 'Senha incorreta'})
+ else:
+    return render(request, 'login.html')
 
 
 
